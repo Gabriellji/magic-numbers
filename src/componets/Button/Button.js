@@ -3,7 +3,8 @@ import styled from 'styled-components';
 const MyButton = styled.button`
   cursor: pointer;
   background: transparent;
-  font-size: 16px;
+  font-size: 25px;
+  outline: none;
   border-radius: 3px;
   color: palevioletred;
   border: 2px solid palevioletred;

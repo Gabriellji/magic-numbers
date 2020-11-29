@@ -1,10 +1,11 @@
 import styled from 'styled-components';
 
 const MyInput = styled.input`
-    font-size: 3rem;
+    font-size: 2vw;
     text-align: center;
     border-radius: 5px;
-    width: 300px;
+    width: 50%;
+    height: 50px;
 `;
 
 const Input = ({ onChange, value, placeholder }) =>

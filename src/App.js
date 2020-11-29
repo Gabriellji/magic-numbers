@@ -3,20 +3,25 @@ import Button from './componets/Button/Button';
 import Input from './componets/Input/Input';
 import Loader from './componets/Loader/Loader';
 
+import Title from './componets/Title/Title';
 import DataContainer from './componets/DataContainer/DataContainer';
 
 import axios from 'axios';
 import styled from 'styled-components';
 import './App.scss';
-import Title from './componets/Title/Title';
+
 
 const MyApp = styled.div`
   display: flex;
-  background-color: #31037D;
+  width: 70%;
+  width: 70%;
+  height: 70%;
+  border-radius: 10px;
+  background-color: #31037de6;
   flex-direction: column;
   align-items: center;
 `;
-
+ // background-color: #31037D;
 
 const App = () => {
 
@@ -60,13 +65,14 @@ const App = () => {
   }
 
   return (
-    <MyApp className="App">
+    <div className="App">
+    <MyApp>
       <Title
        text={"NUMBERS"}/>
       <Input
         type="text"
         value={value}
-        placeholder="⚆ _ ⚆"
+        placeholder="type your number here"
         onChange={handleChange}
       />
       <Button
@@ -83,6 +89,7 @@ const App = () => {
         onClick={getRandomNumberFact}
       />
     </MyApp>
+    </div>
   );
 }
 
