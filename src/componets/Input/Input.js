@@ -8,10 +8,10 @@ const MyInput = styled.input`
 `;
 
 const Input = ({ onChange, value, placeholder }) =>
- <MyInput 
- placeholder={placeholder}
- value={value}
- className="input" 
- onChange={(e) => onChange(e)} />
+    <MyInput
+        placeholder={placeholder}
+        value={value}
+        className="input"
+        onChange={(e) => onChange(e)} />
 
 export default Input;
