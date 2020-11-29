@@ -1,4 +1,8 @@
 import React, { useState } from 'react';
+import Button from './componets/Button/Button';
+import Input from './componets/Input/Input';
+import TextContainer from './componets/TextContainer/TextContainer';
+
 import axios from 'axios';
 import './App.css';
 
@@ -10,48 +14,53 @@ const App = () => {
   const [value, setValue] = useState('');
 
   const getNumberFact = () => {
+    if (!value) {
+      return;
+    }
     setLoading(true);
     axios
-    .get(`http://numbersapi.com/${value}/math`)
-    .then(res => {
-      setNumberFact(res.data);
-      setLoading(false);
-    })
-    .catch(error => console.log(error));
-      setValue('')
+      .get(`http://numbersapi.com/${value}/math`)
+      .then(res => {
+        setNumberFact(res.data);
+        setLoading(false);
+      })
+      .catch(error => console.log(error));
+    setValue('')
   }
 
   const getRandomNumberFact = () => {
     setLoading(true);
     axios
-    .get('http://numbersapi.com/random/math')
-    .then(res => {
-      setNumberFact(res.data);
-      setLoading(false);
-    })
-    .catch(error => console.log(error));
+      .get('http://numbersapi.com/random/math')
+      .then(res => {
+        setNumberFact(res.data);
+        setLoading(false);
+      })
+      .catch(error => console.log(error));
   }
 
   const handleChange = (e) => {
     const number = Number(e.target.value)
     if (!number) {
       alert('acsept only numbers!')
+      return;
     }
-    setValue(number)
+    setValue(number);
   }
 
   return (
     <div className="App">
       <input
-      type="text"
-      value={value}
-      placeholder="type yout number here"
-      onChange={handleChange}
+        type="text"
+        value={value}
+        placeholder="type yout number here"
+        onChange={handleChange}
       >
       </input>
-      <button
-      onClick={getNumberFact}
-      >Click</button>
+      <Button
+        text={'Get Fact'}
+        onClick={getNumberFact}
+      />
       {
         loading && <p>Loading data ...</p>
       }
@@ -59,7 +68,7 @@ const App = () => {
         number && <h1>{number}</h1>
       }
       <button
-      onClick={getRandomNumberFact}
+        onClick={getRandomNumberFact}
       >click me</button>
     </div>
   );
