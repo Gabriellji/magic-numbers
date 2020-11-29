@@ -50,13 +50,12 @@ const App = () => {
 
   return (
     <div className="App">
-      <input
+      <Input
         type="text"
         value={value}
-        placeholder="type yout number here"
+        placeholder="⚆ _ ⚆"
         onChange={handleChange}
-      >
-      </input>
+      />
       <Button
         text={'Get Fact'}
         onClick={getNumberFact}
@@ -67,9 +66,10 @@ const App = () => {
       {
         number && <h1>{number}</h1>
       }
-      <button
+      <Button
+        text={'Get Random Fact'}
         onClick={getRandomNumberFact}
-      >click me</button>
+      />
     </div>
   );
 }
