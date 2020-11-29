@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const MyDataContainer = styled.div`
-    font-size: 3vw;
+    font-size: 2vw;
     color: white;
     font-weight: bold;
     display: flex;
@@ -12,6 +12,13 @@ const MyDataContainer = styled.div`
     align-items: center;
     height: 200px;
     padding: 2rem;
+    
+    @media (max-width: 1200px) {
+        font-size: 3vw;
+    }
+    @media (max-width: 500px) {
+        font-size: 5vw;
+    }
 `;
 
 const DataContainer = ({ text }) => <MyDataContainer className="data_wrap">{text}</MyDataContainer>
