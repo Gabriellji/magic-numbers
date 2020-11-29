@@ -1,10 +1,21 @@
 import React, { useState } from 'react';
 import Button from './componets/Button/Button';
 import Input from './componets/Input/Input';
-import TextContainer from './componets/TextContainer/TextContainer';
+import Loader from './componets/Loader/Loader';
+
+import DataContainer from './componets/DataContainer/DataContainer';
 
 import axios from 'axios';
-import './App.css';
+import styled from 'styled-components';
+import './App.scss';
+import Title from './componets/Title/Title';
+
+const MyApp = styled.div`
+  display: flex;
+  background-color: #31037D;
+  flex-direction: column;
+  align-items: center;
+`;
 
 
 const App = () => {
@@ -49,7 +60,9 @@ const App = () => {
   }
 
   return (
-    <div className="App">
+    <MyApp className="App">
+      <Title
+       text={"NUMBERS"}/>
       <Input
         type="text"
         value={value}
@@ -60,17 +73,16 @@ const App = () => {
         text={'Get Fact'}
         onClick={getNumberFact}
       />
-      {
-        loading && <p>Loading data ...</p>
+      <DataContainer
+      text={
+        loading ? <Loader/> : number
       }
-      {
-        number && <h1>{number}</h1>
-      }
+      />
       <Button
         text={'Get Random Fact'}
         onClick={getRandomNumberFact}
       />
-    </div>
+    </MyApp>
   );
 }
 
